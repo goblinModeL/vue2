@@ -6,6 +6,10 @@ import router from './router'
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import  'amfe-flexible'
+import axios from "axios";
+import  request from './axios/request'
+import  './selfAdaption/fiducialValue'
+Vue.prototype.$request = request
 Vue.use(Antd)
 Vue.config.productionTip = false
 /* eslint-disable no-new */
