@@ -1,0 +1,14 @@
+.el-message {
+  z-index: 99999999 !important;
+}
+
+.All-enter-active, .All-leave-active {
+  transition: opacity 0.5s;/* 根据需要设置动画持续时间和其他属性 */
+}
+.All-enter, .All-leave-to {
+  opacity: 0;
+
+}
+.All-leave-to{
+  display:none;
+}
