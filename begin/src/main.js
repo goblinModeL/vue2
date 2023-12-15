@@ -7,6 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import  './ui-FZ/animation.css'
 import axios from "axios";
 import  'amfe-flexible'
+import echarts from "echarts";
 import {message} from './ui-FZ/message'
 import  request from './axios/request'
 import  store from './util/index.js'

@@ -8,9 +8,8 @@
     <title>begin</title>
     <style>
       body{
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+        width: 100%;
+        min-width: 1200px;
       }
       *{
         margin: 0;
@@ -22,8 +21,26 @@
   </head>
   <style>
   </style>
-  <body>
+  <body style="height: 100vh;">
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+<script>
+  // (function () {
+  //   function setRootFontSize () {
+  //     let rootHtml = document.documentElement
+  //     // 限制展现页面的最小宽度
+  //     // let rootWidth = rootHtml.clientWidth < 1400 ? 1400 : rootHtml.clientWidth
+  //     // 19.2 = 设计图尺寸宽 / 100（ 设计图的rem = 100 ）
+  //     // let rem = rootWidth / 10
+  //     // 动态写入样式
+  //     // rootHtml.style.fontSize = rem + 'px'
+  //     let rootWidth = rootHtml.clientWidth
+  //     rootHtml.style.fontSize = rootWidth < 1600 ? '160px' : '10vw'
+  //     console.log("----------------")
+  //   }
+  //   setRootFontSize()
+  //   window.addEventListener('resize', setRootFontSize, false)
+  // })()
+</script>
 </html>

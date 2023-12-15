@@ -16,7 +16,7 @@ module.exports = {
     // to edit target browsers: use "browserslist" field in package.json
     "autoprefixer": {},
     'postcss-plugin-px2rem': {
-      rootValue: 153,
+      rootValue: 192,
       propList: ['*'],
       // 允许 px 转换为 rem 精确到小数点后几位
       // unitPrecision: 5,

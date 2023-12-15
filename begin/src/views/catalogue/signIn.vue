@@ -117,11 +117,14 @@ export  default {
 </script>
 <style scoped>
 .register{
+  border-radius: 10px;
   position: absolute;
   background: white;
   height: 500px;
-  width: 600px;
+  width: 650px;
   z-index: 200;
+  right: 50%;
+  transform: translate(50%,0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,13 +138,14 @@ export  default {
   }
   .close{
     position: absolute;
+    height: 20px;
     right:20px;
     top:10px;
     cursor: pointer;
   }
   .form{
-    height: 400px;
-    width: 500px;
+    height: 350px;
+    width: 550px;
     display: flex;
     flex-direction: column;
     gap:30px;
@@ -150,7 +154,6 @@ export  default {
       width: 50%;
       display: flex;
       gap:0 50px;
-
     }
   }
 }

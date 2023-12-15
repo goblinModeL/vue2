@@ -7,9 +7,11 @@
   </div>
   <el-card  class="forms">
     <div slot="header" class="clearfix">
+      <span class="logo-title">中西医数字健康管理平台</span>
     <p class="title">用户登录</p>
     </div>
     <p class="skip" @click="jumpOutOf">跳过登录</p>
+    <div class="main">
     <el-form label-position="left" label-width="80px" :model="user" class="login-form" :rules="rules" ref="users">
       <el-form-item label="用户名" prop="name">
         <el-input v-model="user.name" placeholder="输入用户名"></el-input>
@@ -18,6 +20,7 @@
         <el-input v-model="user.password" type="password"  placeholder="输入密码" show-password></el-input>
       </el-form-item>
     </el-form>
+    </div>
     <div class="logIn">
      <p class="skip1" @click="signIn">没有账号?点击注册</p>
       <el-button type="primary" @click="register(user)" class="button">登录</el-button>
@@ -74,7 +77,8 @@ data(){
              if(msg.data.status==200){
                this.$message({
                  message: '登录成功,即将跳转',
-                 type: 'success'
+                 type: 'success',
+                 customClass: 'winClass'
                });
                this.$store.dispatch('A/AsetUser', this.user.name)
                setTimeout(()=>{
@@ -128,12 +132,20 @@ data(){
 
 </script>
 <style scoped>
+.logo-title{
+  text-align: center;
+  font-size: 20px;
+  position: absolute;
+  font-family: 华文行楷;
+  top:15%;
+  width: 475px;
+}
 .home-icon{
   height: 100vh;
   width: 700px;
   position: fixed;
   top:10px;
-  left:0;
+  left:30px;
   .icon{
     height: 100%;
     width: 700px;
@@ -148,21 +160,22 @@ data(){
 }
 .home{
   z-index:1;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   overflow: hidden;
   font-family: PingFang SC,serif;
 }
-@media screen and (max-width: 800px) {
+
+
   .forms{
     margin-right: 50px;
     display: flex;
     position: relative;
     width: 500px;
-    height: 20vh;
+    height: 100%;
     justify-content: center;
     flex-direction: column;
     padding: 50px;
@@ -170,10 +183,19 @@ data(){
     .title{
       font-size: 20px;
       font-family: PingFang SC,serif;
-      position: relative;
+       position: relative;
       font-weight: 800;
       width: 100%;
       text-align: center;
+    }
+    .main{
+      height: 250px;
+      .login-form{
+        padding-top: 50px;
+        .el-form-item{
+          padding-bottom: 30px;
+        }
+      }
     }
     .logIn{
       position: relative;
@@ -198,50 +220,6 @@ data(){
 
     }
   }
-}
-@media screen and (min-width: 800px) {
-  .forms{
-    margin-right: 50px;
-    display: flex;
-    position: relative;
-    width: 500px;
-    height: 100vh;
-    justify-content: center;
-    flex-direction: column;
-    padding: 50px;
-    gap:20px;
-    .title{
-      font-size: 20px;
-      font-family: PingFang SC,serif;
-   position: relative;
-      font-weight: 800;
-      width: 100%;
-      text-align: center;
-    }
-    .logIn{
-      position: relative;
-      width: 100%;
-      height: 40px;
-      .skip1{
-        display: inline-block;
-        height: 40px;
-        line-height: 60px;
-        width: 200px;
-        white-space: normal;
-        font-size: 14px;
-        color: #A9A9A9;
-        margin-bottom: 0;
-        cursor: pointer;
-      }
-      .button{
-        display: inline-block;
-        position: absolute;
-        right: 0;
-      }
-
-    }
-  }
-}
 
 .login-form{
   margin-top: 40px;
