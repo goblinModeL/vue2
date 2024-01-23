@@ -7,7 +7,7 @@
   </div>
   <el-card  class="forms">
     <div slot="header" class="clearfix">
-      <span class="logo-title">中西医数字健康管理平台</span>
+<!--      <span class="logo-title">中西医数字健康管理平台</span>-->
     <p class="title">用户登录</p>
     </div>
     <p class="skip" @click="jumpOutOf">跳过登录</p>
@@ -73,22 +73,26 @@ data(){
            logIn('/home/login',{
               username:this.user.name,
              password:this.user.password
-           }).then((msg)=>{
-             if(msg.data.status==200){
+           }).then(({data})=>{
+             console.log(data)
+             console.log(data.data)
+             if(data.status==200){
+               sessionStorage.setItem('token',data.data.token)
+               console.log('Token stored:', data.data.token);
                this.$message({
                  message: '登录成功,即将跳转',
                  type: 'success',
                  customClass: 'winClass'
                });
                this.$store.dispatch('A/AsetUser', this.user.name)
+               // console.log(this.$store.state.A.user)
                setTimeout(()=>{
                  this.$router.push({
                    path:'/homepage',
                  })
                },1000)
              }
-
-             if(msg.data.status==201){
+             if(data.status==201){
                // this.user.password=''
                this.$message({
                  message: '密码错误',
@@ -96,7 +100,7 @@ data(){
                });
 
              }
-             if(msg.data.status==202){
+             if(data.status==202){
               // this.user.password=''
                this.$message({
                  message: '用户不存在',
@@ -175,7 +179,7 @@ data(){
     display: flex;
     position: relative;
     width: 500px;
-    height: 100%;
+    height: 50vh;
     justify-content: center;
     flex-direction: column;
     padding: 50px;

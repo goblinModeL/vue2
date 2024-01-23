@@ -24,8 +24,8 @@
         <el-menu-item index="4">西医</el-menu-item>
         <el-menu-item index="4">生活广场</el-menu-item>
         <el-menu-item index="3" disabled>体质辨析</el-menu-item>
-        <el-menu-item index="4">养生指南</el-menu-item>
-        <el-menu-item index="4">个人中心</el-menu-item>
+        <el-menu-item index="/demo">养生指南</el-menu-item>
+        <el-menu-item index="/userinfo">个人中心</el-menu-item>
       </el-menu>
       <div class="search">
         <el-autocomplete
@@ -167,7 +167,8 @@ overflow-y: auto;
       width: 100px;
       line-height: 50px;
       padding-left: 20px;
-
+       position: absolute;
+      z-index: 100;
       .icon-img {
         width: 50px;
         height: 50px;
@@ -177,7 +178,7 @@ overflow-y: auto;
     .el-menu {
       height: 50px;
       overflow: hidden;
-      margin-left: 20px;
+      margin-left: 200px;
     }
 
     .el-menu-demo {
@@ -187,9 +188,9 @@ overflow-y: auto;
 }
     .picture {
       margin-top: 60px;
-      padding: 5px 0px 5px 0px;
+      padding: 5px 0 5px 0;
       height: 280px;
-      width: 86%;
+      width: 86vw;
       margin-left: 7%;
       box-shadow: 0 0 5px 1px #999;
       background-color: white;
@@ -202,7 +203,9 @@ overflow-y: auto;
     }
 
     .echarts {
-      width: 100%;
+      width: 86vw;
+      margin-left: 7%;
+      margin-right: 7%;
       padding-top: 30px;
     //overflow-y: auto;
     }

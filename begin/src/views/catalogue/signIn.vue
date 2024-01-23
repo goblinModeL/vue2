@@ -83,16 +83,16 @@ export  default {
     insertlog(){
       this.$refs.formName.validate((valid)=>{
         if (valid) {
-         insert('/home/insert',{username:this.sign.name,password:this.sign.password}).then((mes)=>{
-           console.log(mes)
-         if(mes.data.status==200){
+         insert('/home/insert',{username:this.sign.name,password:this.sign.password}).then(({data})=>{
+
+         if(data.status==200){
            this.$message({
              message: '注册成功,即将返回登录页',
              type: 'success'
            });
        setTimeout( this.closes,2000)
          }
-         if(mes.data.status==201){
+         if(data.status==201){
            this.$message({
              message: '用户名已存在,请重新输入',
              type: 'error'

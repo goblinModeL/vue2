@@ -9,11 +9,11 @@ import axios from "axios";
 import  'amfe-flexible'
 import echarts from "echarts";
 import {message} from './ui-FZ/message'
-import  request from './axios/request'
+import  request from './axios/http'
 import  store from './util/index.js'
 import router from "./router/index";
 Vue.use(ElementUI);
-Vue.prototype.$request = request
+// Vue.prototype.$request = request
 Vue.config.productionTip = false
 Vue.prototype.$message = message
 /* eslint-disable no-new */

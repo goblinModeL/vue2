@@ -4,36 +4,56 @@ import home from '@/views/index'
 
 Vue.use(Router)
 
-const router= new Router({
+const router = new Router({
   routes: [
-    {path:'/', redirect:'/home'},
+    {path: '/', redirect: '/home'},
     {
       path: '/home',
       name: 'home',
-      meta:{
-        title:'数字健康平台'
+      meta: {
+        title: '数字健康平台'
       },
       component: home
     },
     {
       path: '/homepage',
       name: 'homepage',
-      meta:{
-        title:'首页'
+      meta: {
+        title: '首页'
       },
-      component: ()=>import('@/views/catalogue/homepage')
+      component: () => import('@/views/catalogue/homepage')
+    },
+    {
+      path: '/userinfo',
+        name: 'userinfo',
+      meta: {
+      title: '个人中心'
+    },
+      component: () => import('@/views/catalogue/userinfo')
+    },
+    {
+      path: '/demo',
+      name: 'demo',
+      meta: {
+        title: '个人中心'
+      },
+      component: () => import('@/views/catalogue/demo')
     }
   ]
 })
 router.beforeEach((to, from, next) => {
-
   if (to.meta.title) { //如果设置标题，拦截后设置标题
     document.title = to.meta.title
-  }
-  else{
+  } else {
     document.title = from.meta.title
   }
-  next();
+  // const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  // if (isMobile&&to.path!='/Mobile') {
+  //   next('/Mobile')
+  //   console.log('----------------------')
+
+    next();
+
 })
 
 // router.beforeEach((to, from, next) => {

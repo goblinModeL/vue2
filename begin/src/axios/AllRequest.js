@@ -1,4 +1,4 @@
-import request from "./request";
+import request from "./http";
 
 export  function getlist(url,data){
  return request({
@@ -16,6 +16,13 @@ export  function logIn(url,data){
   })
 }
 export  function insert(url,data){
+  return request({
+    url: url,
+    method: 'get',
+    params: data
+  })
+}
+export  function openceshi(url,data){
   return request({
     url: url,
     method: 'get',
