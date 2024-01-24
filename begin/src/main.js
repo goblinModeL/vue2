@@ -5,8 +5,10 @@ import App from './App'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import  './ui-FZ/animation.css'
+import './static/font/font.css'
 import axios from "axios";
-import  'amfe-flexible'
+//关闭自适应插件
+// import  'amfe-flexible'
 import echarts from "echarts";
 import {message} from './ui-FZ/message'
 import  request from './axios/http'

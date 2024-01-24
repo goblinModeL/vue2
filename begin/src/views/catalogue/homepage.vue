@@ -172,6 +172,7 @@ overflow-y: auto;
       .icon-img {
         width: 50px;
         height: 50px;
+        display: block;
       }
     }
 

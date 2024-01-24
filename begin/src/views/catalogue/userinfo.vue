@@ -11,7 +11,7 @@
     <div class="qw">
       <p>12344</p>
     </div>
-    <span slot="reference">hover 激活</span>
+    <span slot="reference" class="texx">hover 激活</span>
   </el-popover>
   <el-popover
     placement="top-start"
@@ -61,6 +61,11 @@ console.log('开始')
 <style scoped>
 </style>
 <style>
+.texx{
+  font-family: almm,serif;
+  font-size: 14px;
+  height: 14px;
+}
 .sss {
   width: 134px;
   height: 88px;
@@ -77,6 +82,7 @@ console.log('开始')
   position: relative;
   height: 100vh;
   width: 100vw;
+  font-size: 14px;
 }
 .uuk{
   height: 50%;

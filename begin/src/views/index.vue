@@ -205,22 +205,18 @@ data(){
       position: relative;
       width: 100%;
       height: 40px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;;
       .skip1{
-        display: inline-block;
-        height: 40px;
-        line-height: 60px;
-        width: 200px;
+
         white-space: normal;
         font-size: 14px;
         color: #A9A9A9;
-        margin-bottom: 0;
+  line-height: 40px;
         cursor: pointer;
       }
-      .button{
-        display: inline-block;
-        position: absolute;
-        right: 0;
-      }
+
 
     }
   }

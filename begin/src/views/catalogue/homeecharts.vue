@@ -58,7 +58,11 @@ return{
     padding: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: white;
+    .el-image{
+      vertical-align: top;
+    }
     .text{
+      vertical-align: top;
       margin-top:10px ;
       font-size: 14px;
     }
