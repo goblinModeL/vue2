@@ -216,7 +216,9 @@ data(){
   line-height: 40px;
         cursor: pointer;
       }
-
+.button{
+  height: 40px;
+}
 
     }
   }

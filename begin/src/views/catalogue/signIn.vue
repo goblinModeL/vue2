@@ -3,7 +3,7 @@
 <template>
 <div v-if="open" class="register">
   <span class="title">用户注册</span>
-  <i class="el-icon-close  close" @click="closes" ></i>
+  <i class="el-icon-close  close" @click="closes"></i>
  <div class="form">
    <el-form label-position="left" label-width="80px" :model="sign" class="login-form" :rules="rules" ref="formName">
      <el-form-item label="用户名" prop="name">
@@ -142,6 +142,7 @@ export  default {
     right:20px;
     top:10px;
     cursor: pointer;
+    font-size: 20px;
   }
   .form{
     height: 350px;
