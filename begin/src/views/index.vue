@@ -147,7 +147,7 @@ data(){
 .home-icon{
   height: 100vh;
   width: 700px;
-  position: fixed;
+  display: flex;
   top:10px;
   left:30px;
   .icon{
@@ -167,18 +167,20 @@ data(){
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+ justify-content: space-between;
   overflow: hidden;
   font-family: PingFang SC,serif;
+  //overflow-x: scroll;
 }
 
-
   .forms{
-    margin-right: 50px;
+    margin: 0 50px 0 50px;
     display: flex;
     position: relative;
-    width: 500px;
+    min-width: 450px;
+    max-width: 500px;
     height: 50vh;
     justify-content: center;
     flex-direction: column;

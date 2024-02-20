@@ -29,7 +29,17 @@ const router = new Router({
       meta: {
       title: '个人中心'
     },
-      component: () => import('@/views/catalogue/userinfo')
+      component: () => import('@/views/catalogue/userinfo'),
+  children:[
+    {
+      path: 'userlist',
+      name: 'userlist',
+      meta: {
+        title: '个人中心'
+      },
+      component: () => import('@/views/catalogue/userlist'),
+    }
+  ]
     },
     {
       path: '/demo',

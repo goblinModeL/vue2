@@ -104,8 +104,6 @@ overflow-y: auto;
   display: flex;
   flex-direction: column;
 .top-fixed {
-  position: fixed;
-  top:0;
   width: 100%;
   height: 50px;
   z-index: 100;
@@ -115,11 +113,11 @@ overflow-y: auto;
     background-color: #ffff00;
     display: flex;
     position: relative;
-
+    flex-direction: row;
     .search {
       position: absolute;
       height: 50px;
-      right: 300px;
+      margin-left: 10%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -177,9 +175,13 @@ overflow-y: auto;
     }
 
     .el-menu {
+      display: flex;
+      gap:20px;
+      position: relative;
       height: 50px;
+       width: 700px ;
       overflow: hidden;
-      margin-left: 200px;
+      margin-left: 30%;
     }
 
     .el-menu-demo {
@@ -191,7 +193,7 @@ overflow-y: auto;
       margin-top: 60px;
       padding: 5px 0 5px 0;
       height: 280px;
-      width: 86vw;
+      width: 86%;
       margin-left: 7%;
       box-shadow: 0 0 5px 1px #999;
       background-color: white;
@@ -204,7 +206,7 @@ overflow-y: auto;
     }
 
     .echarts {
-      width: 86vw;
+      width: 86%;
       margin-left: 7%;
       margin-right: 7%;
       padding-top: 30px;
@@ -243,5 +245,8 @@ el-menu .el-menu-item:hover {
 
 .el-menu-item:hover {
   background-color: #ffff00 !important;
+}
+.el-dropdown-menu__item, .el-menu-item{
+  padding: 0 10px;
 }
 </style>

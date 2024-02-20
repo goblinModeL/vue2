@@ -1,21 +1,82 @@
 
 
 <template>
-  <div class="button">
+  <div class="father">
+<!--    <div class="content" >-->
+<!--  <div class="left-bar">-->
+<!--    <el-menu-->
+<!--      :router="true"-->
+<!--      default-active="2"-->
+<!--      class="el-menu-vertical-demo"-->
+<!--      @open="handleOpen"-->
+<!--      @close="handleClose">-->
+<!--      <el-menu-item index="/userinfo/userlist">-->
+<!--        <template slot="title">-->
+<!--          <i class="el-icon-location"></i>-->
+<!--          <span>导航一</span>-->
+<!--        </template>-->
+<!--      </el-menu-item>-->
+<!--      <el-menu-item index="2">-->
+<!--        <i class="el-icon-menu"></i>-->
+<!--        <span slot="title">导航二</span>-->
+<!--      </el-menu-item>-->
+<!--      <el-menu-item index="3" disabled>-->
+<!--        <i class="el-icon-document"></i>-->
+<!--        <span slot="title">导航三</span>-->
+<!--      </el-menu-item>-->
+<!--      <el-menu-item index="/homepage">-->
+<!--        <i class="el-icon-setting"></i>-->
+<!--        <span slot="title">导航四</span>-->
+<!--      </el-menu-item>-->
+<!--    </el-menu>-->
+<!--  </div>-->
+<!--  <div class="right-content">-->
+<!--    <router-view/>-->
+<!--  </div>-->
+<!--    </div>-->
 
-  <el-popover
-    placement="top-start"
-    title="标题"
-    width="200"
-    trigger="hover"
-  >
-    <p v-if="1>2">222222222222222222222222</p>
-    <p else>00</p>
-    <button slot="reference">hover 激活</button>
-  </el-popover>
-    {{name}}
-    <button @click="open">测试</button>
+<!--  <el-popover-->
+<!--    placement="top-start"-->
+<!--    title="标题"-->
+<!--    width="200"-->
+<!--    trigger="hover"-->
+<!--  >-->
+<!--    <p v-if="1>2">222222222222222222222222</p>-->
+<!--    <p else>00</p>-->
+<!--    <button slot="reference">hover 激活</button>-->
+<!--  </el-popover>-->
+    <button  >测试</button><br/>
+   <span v-for="i  in list">{{i}}2</span>
+    <el-popover
+      ref="popover7"
+      popper-class="sss"
+      placement="top-start"
+      width="80"
+      trigger="hover"
+      v-if="sk"
+    >
+
+      <div class="qw" >
+        <div class="text"><div>暂无数据</div></div>
+      </div>
+    </el-popover>
+    <span class="box-7" v-popover:popover7 style="font-size: 18px" @mouseenter="open">1234</span>
+    <el-popover
+      ref="popover8"
+      :popper-class="sk===true?'sss':'ssss'"
+      placement="top-start"
+      width="80"
+      trigger="hover"
+    >
+
+      <div class="qw" >
+        <div class="text"><div>暂无数据</div></div>
+      </div>
+    </el-popover>
+    <span class="box-7" v-popover:popover8 style="font-size: 18px" @mouseenter="open">126664</span>
+    <div v-if="sk">11111</div>
   </div>
+
 
 
 </template>
@@ -28,46 +89,71 @@ export default {
   components: {SignIn},
   data(){
     return{
-    name:''
+    name:'',
+      list:[],
+      j:0,
+      sk:false
     }
 
   },
   mounted() {
     this.getName()
+
   },
-  methods:{
-    open(){
-      openceshi('/getActive/all').then(res=>{
+  methods: {
+    open() {
+      openceshi('/home/ceshi').then(({data}) => {
+        this.sk=true
       })
+   console.log(this.sk)
     },
-      getName(){
-      this.name=this.$store.state.A.user
+    getName() {
+      this.name = this.$store.state.A.user
+    },
+
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
     }
-  },
+  }
 }
 </script>
 
 <style scoped>
+.father{
+  position: absolute;
+  height: 90vh;
+  width: 90vw;
+  left:5vw;
+  top:5vh;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  .content{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    .left-bar{
+      flex: 1;
+    display: flex;
+      flex-direction: column;
+
+    }
+    .right-content{
+      flex: 4;
+
+    }
+  }
+}
+
 </style>
 <style>
-.texx{
-  font-family: almm,serif;
-  font-size: 14px;
-  height: 14px;
+.sss{
+  background-color: #8c939d;
 }
-
-
-
-.button{
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  font-size: 14px;
-}
-.uuk{
-  height: 50%;
-  width: 50%;
+.ssss{
   background-color: yellow;
 }
-
 </style>
