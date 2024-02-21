@@ -2,7 +2,7 @@
 
 <template>
   <div class="all">
-   请使用电脑端
+   请使用电脑端访问
   </div>
 </template>
 
@@ -11,8 +11,8 @@
 </script>
 <style scoped>
 .all{
-  height: 50vh;
-  width: 100vw;
+  height: 50px;
+  width: 100px;
   background-color: yellow;
 }
 </style>

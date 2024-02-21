@@ -23,7 +23,7 @@
         </el-submenu>
         <el-menu-item index="4">西医</el-menu-item>
         <el-menu-item index="4">生活广场</el-menu-item>
-        <el-menu-item index="3" disabled>体质辨析</el-menu-item>
+        <el-menu-item index="/community" >社区交流</el-menu-item>
         <el-menu-item index="/demo">养生指南</el-menu-item>
         <el-menu-item index="/userinfo">个人中心</el-menu-item>
       </el-menu>
