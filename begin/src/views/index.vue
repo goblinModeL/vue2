@@ -7,8 +7,7 @@
   </div>
   <el-card  class="forms">
     <div slot="header" class="clearfix">
-<!--      <span class="logo-title">中西医数字健康管理平台</span>-->
-    <p class="title">用户登录</p>
+    <span class="title">用户登录{{width}}</span>
     </div>
     <p class="skip" @click="jumpOutOf">跳过登录</p>
     <div class="main">
@@ -47,6 +46,7 @@ export default {
   },
 data(){
   return {
+    width:document.getElementsByClassName('title')[0],
     user:{
       name:'',
       password:''
@@ -64,6 +64,7 @@ data(){
   }
 },
   mounted() {
+    console.log(document.getElementsByClassName('title')[0].style.width)
   },
   methods:{
     register(){
@@ -135,17 +136,10 @@ data(){
 }
 
 </script>
-<style scoped>
-.logo-title{
-  text-align: center;
-  font-size: 20px;
-  position: absolute;
-  font-family: 华文行楷;
-  top:15%;
-  width: 475px;
-}
+<style lang="scss" scoped>
+
 .home-icon{
-  height: 100vh;
+  height: 100%;
   width: 700px;
   display: flex;
   top:10px;
@@ -186,13 +180,17 @@ data(){
     flex-direction: column;
     padding: 50px;
     gap:20px;
-    .title{
-      font-size: 20px;
-      font-family: PingFang SC,serif;
-       position: relative;
-      font-weight: 800;
+    .clearfix {
       width: 100%;
-      text-align: center;
+      .title {
+        font-size: 20px;
+        font-family: PingFang SC, serif;
+        width: 100%;
+        position: relative;
+        display: inline-block;
+        font-weight: 800;
+        text-align: center;
+      }
     }
     .main{
       height: 250px;
@@ -237,7 +235,7 @@ data(){
   white-space: nowrap;
 }
 .fade-enter-active, .fade-leave-active, .slide-enter-active, .slide-leave-active {
-  transition: opacity 0.5s;/* 根据需要设置动画持续时间和其他属性 */
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to, .slide-enter, .slide-leave-to {
   opacity: 0;

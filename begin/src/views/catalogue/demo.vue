@@ -172,7 +172,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 #map{
   position: absolute;
   height: 100vh;

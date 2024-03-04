@@ -43,7 +43,7 @@ return{
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .All-box{
   height: 800px;
 

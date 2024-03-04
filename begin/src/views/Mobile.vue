@@ -9,7 +9,7 @@
 <script >
 
 </script>
-<style scoped>
+<style scoped lang="scss">
 .all{
   height: 50px;
   width: 100px;

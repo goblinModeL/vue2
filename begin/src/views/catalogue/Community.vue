@@ -66,7 +66,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .all{
   height: 100%;
   width: 100%;

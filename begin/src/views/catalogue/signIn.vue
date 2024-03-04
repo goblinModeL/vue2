@@ -115,7 +115,7 @@ export  default {
 
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .register{
   border-radius: 10px;
   position: absolute;
@@ -129,7 +129,6 @@ export  default {
   align-items: center;
   justify-content: center;
   .title{
-
     font-size: 16px;
     font-family: PingFang SC,serif;
     position: absolute;
