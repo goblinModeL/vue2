@@ -141,10 +141,13 @@ data(){
 .home-icon{
   height: 100%;
   width: 700px;
+  flex: 1;
   display: flex;
   top:10px;
   left:30px;
   .icon{
+    position: absolute;
+    z-index: -1;
     height: 100%;
     width: 700px;
   }
@@ -157,20 +160,20 @@ data(){
   cursor: pointer;
 }
 .home{
-  z-index:1;
+  z-index:100;
+  position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
- justify-content: space-between;
-  overflow: hidden;
+ overflow: hidden;
+  justify-content: space-between;
   font-family: PingFang SC,serif;
-  //overflow-x: scroll;
 }
-
   .forms{
-    margin: 0 50px 0 50px;
+    flex: 1;
+    margin: 0 100px 0 50px;
     display: flex;
     position: relative;
     min-width: 450px;

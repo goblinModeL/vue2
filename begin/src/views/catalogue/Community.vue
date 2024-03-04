@@ -124,7 +124,7 @@ export default {
           width: 100%;
           display: flex;
           flex-direction: column;
-          max-height: 200px;
+          max-height: 500px;
           min-height: 100px;
 
           .top-list {
@@ -156,7 +156,7 @@ export default {
             line-height: 20px;
             font-size: 14px;
             word-wrap: break-word;
-          //word-break: normal; overflow: hidden;
+          word-break: normal; overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
