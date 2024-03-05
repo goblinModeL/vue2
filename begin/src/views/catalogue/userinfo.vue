@@ -75,6 +75,7 @@
     </el-popover>
     <span class="box-7" v-popover:popover8 style="font-size: 18px" @mouseenter="open">126664</span>
     <div v-if="sk">11111</div>
+    <span>本页面被访问次数：{{count}}</span>
   </div>
 
 
@@ -83,12 +84,13 @@
 
 <script>
 import SignIn from "./signIn.vue";
-import {openceshi} from "../../axios/AllRequest";
+import {getBrowse, openceshi} from "../../axios/AllRequest";
 
 export default {
   components: {SignIn},
   data(){
     return{
+      count:0,
     name:'',
       list:[],
       j:0,
@@ -100,6 +102,9 @@ export default {
     this.getName()
 
   },
+  created() {
+    this.getPageNumber()
+  },
   methods: {
     open() {
       openceshi('/home/ceshi').then(({data}) => {
@@ -110,7 +115,21 @@ export default {
     getName() {
       this.name = this.$store.state.A.user
     },
+     //获取当前页面浏览次数
+    getPageNumber(){
+      let url=this.$route.path
+      getBrowse('/getActive/count',
+        {'route':url}
+      ).then(
+        ({data})=>{
+          console.log(data)
+          if(data.code===200){
+            this.count=data.data
+          }
+        }
 
+      )
+    },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
