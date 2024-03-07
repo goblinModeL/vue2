@@ -47,16 +47,16 @@ const router = new Router({
       title: '个人中心'
     },
       component: () => import('@/views/catalogue/userinfo'),
-    children:[
+     children:[
+  ]
+    },
     {
-      path: 'userlist',
+      path: '/userlist',
       name: 'userlist',
       meta: {
-        title: '个人中心'
+        title: '个人中心2'
       },
       component: () => import('@/views/catalogue/userlist'),
-    }
-  ]
     },
     {
       path: '/demo',
