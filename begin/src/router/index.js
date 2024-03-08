@@ -4,7 +4,8 @@ import home from '@/views/index'
 
 import moblie from '@/views/Mobile.vue'
 Vue.use(Router)
-
+// 开发环境不使用懒加载, 因为懒加载页面太多的话会造成webpack热更新太慢, 所以只有生产环境使用懒加载
+const _import = require('./import-' + process.env.NODE_ENV)
 const router = new Router({
   routes: [
     {path: '/', redirect: '/home'},
@@ -14,7 +15,7 @@ const router = new Router({
       meta: {
         title: '数字健康平台'
       },
-      component: home
+      component: _import('index')
     },
     {
       path: '/homepage',
@@ -22,15 +23,15 @@ const router = new Router({
       meta: {
         title: '首页'
       },
-      component: () => import('@/views/catalogue/homepage')
+      component:  _import('catalogue/homepage')
     },
     {
-      path: '/moblie',
-      name: 'moblie',
+      path: '/Mobile',
+      name: 'Mobile',
       meta: {
         title: '提示'
       },
-      component: moblie
+      component: _import('Mobile')
     },
     {
       path: '/community',
@@ -38,7 +39,7 @@ const router = new Router({
       meta: {
         title: '社区'
       },
-      component: () => import('@/views/catalogue/community'),
+      component: _import('catalogue/Community')
     },
     {
       path: '/userinfo',
@@ -46,7 +47,7 @@ const router = new Router({
       meta: {
       title: '个人中心'
     },
-      component: () => import('@/views/catalogue/userinfo'),
+      component:  _import('catalogue/userinfo'),
      children:[
   ]
     },
@@ -56,7 +57,7 @@ const router = new Router({
       meta: {
         title: '个人中心2'
       },
-      component: () => import('@/views/catalogue/userlist'),
+      component:  _import('catalogue/userlist')
     },
     {
       path: '/demo',
@@ -64,7 +65,7 @@ const router = new Router({
       meta: {
         title: '个人中心'
       },
-      component: () => import('@/views/catalogue/demo')
+      component: _import('catalogue/demo')
     }
   ]
 })
