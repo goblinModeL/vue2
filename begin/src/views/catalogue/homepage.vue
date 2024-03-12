@@ -3,9 +3,10 @@
     <div class="top-fixed">
     <div class="top">
       <div class="icon"><img src="@/static/img/he.png" class="icon-img" alt=""></div>
-      <div class="username" >
-        <el-avatar>{{name.substring(0,4)||"游客"}}</el-avatar>
-        <p class="quit" @click="quit" v-if="name">退出登录</p>
+      <div class="search">
+        <el-autocomplete
+          placeholder="请输入查找内容"
+        ></el-autocomplete>
       </div>
       <el-menu
         :router="true"
@@ -27,10 +28,9 @@
         <el-menu-item index="/demo">养生指南</el-menu-item>
         <el-menu-item index="/userinfo">个人中心</el-menu-item>
       </el-menu>
-      <div class="search">
-        <el-autocomplete
-          placeholder="请输入查找内容"
-        ></el-autocomplete>
+      <div class="username" >
+        <el-avatar>{{name.substring(0,4)||"游客"}}</el-avatar>
+        <p class="quit" @click="quit" v-if="name">退出登录</p>
       </div>
     </div></div>
 
@@ -114,17 +114,15 @@ overflow-y: auto;
     display: flex;
     position: relative;
     flex-direction: row;
+    gap:60px;
     .search {
-      position: absolute;
       height: 50px;
-      margin-left: 10%;
+      //margin-left: 10%;
       display: flex;
       align-items: center;
       justify-content: center;
-
       .el-autocomplete {
         display: flex !important;
-
         .el-input__inner {
           height: 40px;
           width: 250px;
@@ -135,8 +133,8 @@ overflow-y: auto;
 
     .username {
       text-align: center;
-      position: absolute;
-      right: 10px;
+      //position: absolute;
+      //left: 10px;
       width: 120px;
       height: 50px;
       display: flex;
@@ -165,7 +163,7 @@ overflow-y: auto;
       width: 100px;
       line-height: 50px;
       padding-left: 20px;
-       position: absolute;
+      // position: absolute;
       z-index: 100;
       .icon-img {
         width: 50px;
@@ -174,16 +172,25 @@ overflow-y: auto;
       }
     }
 
-    .el-menu {
-      display: flex;
-      gap:20px;
-      position: relative;
-      height: 50px;
-       width: 700px ;
-      overflow: hidden;
-      margin-left: 30%;
-    }
+   @media screen and(min-width: 1000px) {
+     .el-menu {
+       display: flex;
+       gap:30px;
+       height: 50px;
+       width: 1000px ;
+       overflow: hidden;
+     }
+   }
 
+    @media screen and(max-width: 1000px) {
+      .el-menu {
+        display: flex;
+
+        height: 50px;
+        width: 500px ;
+        overflow: hidden;
+      }
+    }
     .el-menu-demo {
 
     }

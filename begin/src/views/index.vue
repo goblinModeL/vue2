@@ -138,20 +138,6 @@ data(){
 </script>
 <style lang="scss" scoped>
 
-.home-icon{
-  height: 100%;
-  width: 700px;
-  flex: 1;
-  display: flex;
-  top:10px;
-  left:30px;
-  .icon{
-    position: absolute;
-    z-index: -1;
-    height: 100%;
-    width: 700px;
-  }
-}
 .skip{
   color: #A9A9A9;
   position: absolute;
@@ -166,19 +152,52 @@ data(){
   height: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
- overflow: hidden;
-  justify-content: space-between;
+  justify-content: center;
   font-family: PingFang SC,serif;
+
+  @media screen and (max-width: 700px) {
+    .home-icon{
+      height: 50%;
+      max-width: 600px;
+      min-width: 250px;
+      display: flex;
+      top:10px;
+      left:30px;
+      .icon{
+        display:block  !important;
+        overflow: hidden;
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (min-width: 700px) {
+    .home-icon{
+      height: 80%;
+      max-width: 600px;
+      min-width: 250px;
+      display: flex;
+      top:10px;
+      left:30px;
+      .icon{
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
 }
   .forms{
     flex: 1;
-    margin: 0 100px 0 50px;
+    margin: 0 50px 0 50px;
     display: flex;
     position: relative;
-    min-width: 450px;
+    min-width: 250px;
     max-width: 500px;
-    height: 50vh;
+    height: 50%;
     justify-content: center;
     flex-direction: column;
     padding: 50px;
