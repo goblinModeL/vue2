@@ -124,7 +124,7 @@ data(){
 
     },
     signIn(){
- this.open=!this.open;
+   this.open=!this.open;
     },
     jumpOutOf(){
       this.excessive=true;
@@ -156,8 +156,61 @@ data(){
   align-items: center;
   justify-content: center;
   font-family: PingFang SC,serif;
-
+ gap:20px;
   @media screen and (max-width: 700px) {
+    .forms{
+      flex: 1;
+      margin: 0 50px 0 50px;
+      display: flex;
+      position: relative;
+      min-width: 200px;
+      max-width: 500px;
+      height: 35%;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+      .clearfix {
+        width: 100%;
+        .title {
+          font-size: 20px;
+          font-family: PingFang SC, serif;
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          font-weight: 800;
+          text-align: center;
+        }
+      }
+      .main{
+        height: 140px;
+        .login-form{
+          padding-top: 20px;
+          .el-form-item{
+            padding-bottom: 20px;
+          }
+        }
+      }
+      .logIn{
+        position: relative;
+        margin-top: 10px;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;;
+        .skip1{
+          white-space: normal;
+          font-size: 14px;
+          color: #A9A9A9;
+          line-height: 40px;
+          cursor: pointer;
+        }
+        .button{
+          height: 40px;
+        }
+
+      }
+    }
     .home-icon{
       height: 50%;
       max-width: 600px;
@@ -175,6 +228,60 @@ data(){
     }
   }
   @media screen and (min-width: 700px) {
+    .forms{
+      flex: 1;
+      margin: 0 50px 0 50px;
+      display: flex;
+      position: relative;
+      min-width: 250px;
+      max-width: 500px;
+      height: 50%;
+      justify-content: center;
+      flex-direction: column;
+      padding: 50px;
+      gap:20px;
+      .clearfix {
+        width: 100%;
+        .title {
+          font-size: 20px;
+          font-family: PingFang SC, serif;
+          width: 100%;
+          position: relative;
+          display: inline-block;
+          font-weight: 800;
+          text-align: center;
+        }
+      }
+      .main{
+        height: 250px;
+        .login-form{
+          padding-top: 50px;
+          .el-form-item{
+            padding-bottom: 30px;
+          }
+        }
+      }
+      .logIn{
+        position: relative;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;;
+        .skip1{
+
+          white-space: normal;
+          font-size: 14px;
+          color: #A9A9A9;
+          line-height: 40px;
+          cursor: pointer;
+        }
+        .button{
+          height: 40px;
+        }
+
+      }
+    }
     .home-icon{
       height: 80%;
       max-width: 600px;
@@ -190,60 +297,6 @@ data(){
     }
   }
 }
-  .forms{
-    flex: 1;
-    margin: 0 50px 0 50px;
-    display: flex;
-    position: relative;
-    min-width: 250px;
-    max-width: 500px;
-    height: 50%;
-    justify-content: center;
-    flex-direction: column;
-    padding: 50px;
-    gap:20px;
-    .clearfix {
-      width: 100%;
-      .title {
-        font-size: 20px;
-        font-family: PingFang SC, serif;
-        width: 100%;
-        position: relative;
-        display: inline-block;
-        font-weight: 800;
-        text-align: center;
-      }
-    }
-    .main{
-      height: 250px;
-      .login-form{
-        padding-top: 50px;
-        .el-form-item{
-          padding-bottom: 30px;
-        }
-      }
-    }
-    .logIn{
-      position: relative;
-      width: 100%;
-      height: 40px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;;
-      .skip1{
-
-        white-space: normal;
-        font-size: 14px;
-        color: #A9A9A9;
-  line-height: 40px;
-        cursor: pointer;
-      }
-.button{
-  height: 40px;
-}
-
-    }
-  }
 
 .login-form{
   margin-top: 40px;

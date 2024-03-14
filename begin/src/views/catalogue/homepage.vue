@@ -26,23 +26,27 @@
         <el-menu-item index="/userlist">生活广场</el-menu-item>
         <el-menu-item index="/community" >社区交流</el-menu-item>
         <el-menu-item index="/demo">养生指南</el-menu-item>
-        <el-menu-item index="/userinfo">个人中心</el-menu-item>
+        <el-menu-item index="/userinfo" :disabled="name===''">个人中心</el-menu-item>
       </el-menu>
+      <div class="little-menu">
+
+      </div>
       <div class="username" >
         <el-avatar>{{name.substring(0,4)||"游客"}}</el-avatar>
         <p class="quit" @click="quit" v-if="name">退出登录</p>
       </div>
+
     </div></div>
 
     <el-scrollbar style="height: 100%">
 
     <div class="picture">
-<!--          <el-carousel :interval="2000" type="card"   class="pic">-->
-<!--            <el-carousel-item v-for="(item,index) in imgList" :key="index">-->
-<!--               <img class="img" :src="item.img" alt="p">-->
-<!--             {{item}}-->
-<!--            </el-carousel-item>-->
-<!--          </el-carousel>-->
+          <el-carousel :interval="2000" type="card"   class="pic">
+            <el-carousel-item v-for="(item,index) in imgList" :key="index">
+               <img class="img" :src="item.img" alt="p">
+             {{item}}
+            </el-carousel-item>
+          </el-carousel>
     </div>
     <div class="echarts">
     <ZoomCharts></ZoomCharts>
@@ -172,7 +176,7 @@ overflow-y: auto;
       }
     }
 
-   @media screen and(min-width: 1000px) {
+   @media screen and(min-width: 1200px) {
      .el-menu {
        display: flex;
        gap:30px;
@@ -180,15 +184,20 @@ overflow-y: auto;
        width: 1000px ;
        overflow: hidden;
      }
+     .little-menu{
+       display:none;
+     }
    }
 
-    @media screen and(max-width: 1000px) {
+    @media screen and(max-width: 1200px) {
       .el-menu {
-        display: flex;
-
+        display: none;
         height: 50px;
         width: 500px ;
         overflow: hidden;
+      }
+      .little-menu{
+        display:flex;
       }
     }
     .el-menu-demo {
@@ -197,13 +206,10 @@ overflow-y: auto;
   }
 }
     .picture {
-      margin-top: 60px;
-      padding: 5px 0 5px 0;
-      height: 280px;
+      margin-top: 40px;
+      height: 300px;
       width: 86%;
       margin-left: 7%;
-      box-shadow: 0 0 5px 1px #999;
-      background-color: white;
       .pic {
         height: 280px !important;
         margin-left: 40px;

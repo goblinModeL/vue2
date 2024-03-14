@@ -116,51 +116,101 @@ export  default {
 }
 </script>
 <style scoped lang="scss">
-.register{
-  border-radius: 10px;
-  position: absolute;
-  background: white;
-  height: 500px;
-  width: 650px;
-  z-index: 200;
-  right: 50%;
-  transform: translate(50%,0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .title{
-    font-size: 16px;
-    font-family: PingFang SC,serif;
+@media screen and (max-width:700px) {
+  .register{
+    border-radius: 10px;
     position: absolute;
-    font-weight: 800;
-    top:25px;
-  }
-  .close{
-    position: absolute;
-    height: 20px;
-    right:20px;
-    top:10px;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  .form{
-    height: 350px;
-    width: 550px;
+    background: white;
+    height: 50%;
+    width: 80%;
+    z-index: 200;
+    right: 50%;
+    transform: translate(50%,0);
     display: flex;
-    flex-direction: column;
-    gap:30px;
-    .button{
-      height: 40px;
-      width: 50%;
+    align-items: center;
+    justify-content: center;
+    .title{
+      font-size: 16px;
+      font-family: PingFang SC,serif;
+      position: absolute;
+      font-weight: 800;
+      top:25px;
+    }
+    .close{
+      position: absolute;
+      height: 20px;
+      right:20px;
+      top:10px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .form{
+      height: 350px;
+      width: 90%;
       display: flex;
-      gap:0 50px;
+      flex-direction: column;
+      gap:30px;
+      .button{
+        height: 40px;
+        width: 50%;
+        display: flex;
+        gap:0 50px;
+      }
     }
   }
+  .login-form{
+    margin-top: 50px;
+    width: 100%;
+  }
 }
-.login-form{
-  margin-top: 50px;
-  width: 100%;
+@media screen and (min-width:700px) {
+  .register{
+    border-radius: 10px;
+    position: absolute;
+    background: white;
+    height: 50%;
+    width: 600px;
+    z-index: 200;
+    right: 50%;
+    transform: translate(50%,0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .title{
+      font-size: 16px;
+      font-family: PingFang SC,serif;
+      position: absolute;
+      font-weight: 800;
+      top:25px;
+    }
+    .close{
+      position: absolute;
+      height: 20px;
+      right:20px;
+      top:10px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .form{
+      height: 350px;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      gap:30px;
+      .button{
+        height: 40px;
+        width: 50%;
+        display: flex;
+        gap:0 50px;
+      }
+    }
+  }
+  .login-form{
+    margin-top: 50px;
+    width: 100%;
+  }
 }
+
 /deep/.login-form .el-form-item__content{
 
   margin-left: 80px  !important;

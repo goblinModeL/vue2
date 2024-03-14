@@ -78,17 +78,18 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.title;
   } else {
     document.title = from.meta.title;
-  }
 
-  if (window.innerWidth >=800 &&to.path === '/moblie') {
-    console.log("我要去pc端了")
-    next('/');
   }
-  else if(window.innerWidth<800  &&to.path !== '/moblie'){
-    console.log('我要去移动端了')
-    next('/moblie');
-  }
-   else next()
+  next()
+  // if (window.innerWidth >=800 &&to.path === '/moblie') {
+  //   console.log("我要去pc端了")
+  //   next('/');
+  // }
+  // else if(window.innerWidth<800  &&to.path !== '/moblie'){
+  //   console.log('我要去移动端了')
+  //   next('/moblie');
+  // }
+  //  else next()
 });
 // window.addEventListener('resize', () => {
 //   // 如果窗口宽度发生变化
