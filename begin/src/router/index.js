@@ -60,12 +60,12 @@ const router = new Router({
       component:  _import('catalogue/userlist')
     },
     {
-      path: '/demo',
-      name: 'demo',
+      path: '/HEALTH',
+      name: 'HEALTH',
       meta: {
-        title: '个人中心'
+        title: '养生指南'
       },
-      component: _import('catalogue/demo')
+      component: _import('catalogue/HEALTH')
     }
   ]
 })

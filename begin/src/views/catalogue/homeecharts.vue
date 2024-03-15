@@ -23,8 +23,19 @@ return{
   },
   mounted() {
   this.beg()
+    window.addEventListener('resize', this.handleResize);
   },
   methods:{
+    handleResize() {
+      // 遍历所有图表实例并重新调整大小
+      let All = document.getElementsByClassName('con');
+      for (let i = 0; i < All.length; i++) {
+        let myChart = this.$echarts.getInstanceByDom(All[i]);
+        if (myChart) {
+          myChart.resize();
+        }
+      }
+    },
     beg(){
       let All=document.getElementsByClassName('con')
       for(let i=0;i<All.length;i++) {

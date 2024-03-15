@@ -85,6 +85,7 @@
 <script>
 import SignIn from "./signIn.vue";
 import {getBrowse, openceshi} from "../../axios/AllRequest";
+import router from "../../router";
 
 export default {
   components: {SignIn},
@@ -114,6 +115,16 @@ export default {
     },
     getName() {
       this.name = this.$store.state.A.user
+      if(this.name==''){
+        this.$message({
+          message: '请先登录',
+          type: 'warning'
+        });
+        this.$router.push({
+          path:'/home',
+        })
+      }
+
     },
      //获取当前页面浏览次数
     getPageNumber(){

@@ -18,8 +18,8 @@ export var option=()=> {
         fontWeight:'normal',//'bold'(粗体) | 'bolder'(粗体) | 'lighter'(正常粗细) ，字体粗细
         fontFamily:'sans-serif',//'sans-serif' | 'serif' | 'monospace' | 'Arial' | 'Courier New'
         // 'Microsoft YaHei'(微软雅黑) ，文字字体
-        fontSize:resize(18),//字体大小
-        lineHeight:resize(18),//字体行高
+        fontSize:14,//字体大小
+        lineHeight:13,//字体行高
       }},
   xAxis: {
     type: 'category',

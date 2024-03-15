@@ -25,7 +25,7 @@
         <el-menu-item index="4">西医</el-menu-item>
         <el-menu-item index="/userlist">生活广场</el-menu-item>
         <el-menu-item index="/community" >社区交流</el-menu-item>
-        <el-menu-item index="/demo">养生指南</el-menu-item>
+        <el-menu-item index="/HEALTH">养生指南</el-menu-item>
         <el-menu-item index="/userinfo" :disabled="name===''">个人中心</el-menu-item>
       </el-menu>
       <div class="little-menu">

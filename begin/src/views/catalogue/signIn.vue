@@ -85,14 +85,14 @@ export  default {
         if (valid) {
          insert('/home/insert',{username:this.sign.name,password:this.sign.password}).then(({data})=>{
 
-         if(data.status==200){
+         if(data.code==200){
            this.$message({
              message: '注册成功,即将返回登录页',
              type: 'success'
            });
        setTimeout( this.closes,2000)
          }
-         if(data.status==201){
+         if(data.code==201){
            this.$message({
              message: '用户名已存在,请重新输入',
              type: 'error'

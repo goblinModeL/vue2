@@ -7,7 +7,7 @@
   </div>
   <el-card  class="forms">
     <div slot="header" class="clearfix">
-    <span class="title">用户登录{{width}}</span>
+    <span class="title">用户登录</span>
     </div>
     <p class="skip" @click="jumpOutOf">跳过登录</p>
     <div class="main">
@@ -77,7 +77,7 @@ data(){
            }).then(({data})=>{
              console.log(data)
              console.log(data.data)
-             if(data.status==200){
+             if(data.code==200){
                sessionStorage.setItem('token',data.data.token)
                console.log('Token stored:', data.data.token);
                this.$message({
@@ -93,7 +93,7 @@ data(){
                  })
                },1000)
              }
-             if(data.status==201){
+             if(data.code==201){
                // this.user.password=''
                this.$message({
                  message: '密码错误',
@@ -101,7 +101,7 @@ data(){
                });
 
              }
-             if(data.status==202){
+             if(data.code==202){
               // this.user.password=''
                this.$message({
                  message: '用户不存在',
