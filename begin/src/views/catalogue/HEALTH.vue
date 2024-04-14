@@ -1,63 +1,23 @@
 
 <template>
 <div class="father">
-  <div>{{name}}</div>
-  <el-tag
-    v-for="tag in tags"
-    :key="tag.name"
-    :disable-transitions="false"
-    @click.native="Username(tag)"
-    @close="handleClose(tag)"
-    closable
-    :type="tag.type">
-    {{tag.name}}
-  </el-tag>
-  <input
-    class="opopop"
-    type="text"
-    v-model="sendMessage"
-    @keyup.enter="handleSendButton()"
-    placeholder="请输入你要发送的消息">
-  <input
-    type="text"
-    v-model="username"
-    placeholder="请输入接收方id/name">
-  <button @click="handleLogoutButton()">退出</button>
-  <table class="ww">
-    <thead>
-    <tr>
-      <th>消息编号</th>
-      <th>发送者</th>
-      <th>接收者</th>
-      <th>发送时间</th>
-      <th>发送内容</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="item in messageList" >
-      <td>{{ item.id }}</td>
-      <td>{{ item.username }}</td>
-      <td>{{ username }}</td>
-      <td>{{ new Date(item.time).toLocaleTimeString() }}</td>
-      <td>{{ item.message }}</td>
-    </tr>
-    </tbody>
-  </table>
+
+
+
   <div class="box">
     <div class="left">
 
     </div>
     <div class="right">
-    <div class="title">在线咨询</div>
+    <div class="title">在线咨询<span class="ti">(该会话关闭后内容自动清除)</span></div>
     <div class="content">
-        <span v-for="(item,index) in messageList"  :class="{'right':index%2==0, 'left':index%2!=0,}">
-          <span>{{ item.id }}</span>
+        <span v-for="(item,index) in messageList"  class="boxs">
           <span>{{ item.username }}</span>
           <span>{{ username }}</span>
           <span>{{ new Date(item.time).toLocaleTimeString() }}</span>
-          <span>{{ item.message }}</span>
+          <span style="display: block;margin-top: 10px">{{ item.message }}</span>
+              <el-divider></el-divider>
         </span>
-
     </div>
     <div class="bar">
       <el-input
@@ -98,7 +58,7 @@ export default {
 
    },
     webSocketInit(){
-      const webSocketUrl = 'ws://192.168.0.76:8465/websocket/'+ this.name
+      const webSocketUrl = 'ws://192.168.244.1:8465/websocket/'+ this.name
       this.webSocketObject = new WebSocket(webSocketUrl);
       this.webSocketObject.onopen = this.webSocketOnOpen
       this.webSocketObject.onmessage = this.webSocketOnMessage
@@ -181,33 +141,39 @@ display: flex;
   top:50%;
   transform: translate(-50%,-50%);
   .left{
-   flex: 1;
-    background-color: #8c939d;
+   flex: 0;
   }
   .right {
     flex: 8;
     .title {
       display: flex;
+      flex-direction: row;
+      gap:50px;
       align-items: center;
       padding-left: 20px;
-      background-color: palevioletred;
       font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
       height: 10%;
+      .ti{
+        color: #8c939d;
+
+      }
     }
 
     .content {
-      background-color: #f78989;
-      width: 100%;
+      overflow-y: auto;
+      position: relative;
+      left:5%;
+      width: 90%;
       height: 80%;
-     display: block;
+      //background-color: #8c939d;
+      display: flex;
       flex-direction: column;
-      .left{
-        max-width: 80%;
-      }
-      .right{
-        max-width: 80%;
+      .boxs{
+        padding:10px;
+        width:90%;
 
       }
+
     }
 
     .bar {
@@ -218,13 +184,34 @@ display: flex;
       width: 100%;
       height: 10%;
       .input{
-        width: 80%;
+
       }
       .send{
 
       }
     }
   }
+}
+
+</style>
+<style>
+::-webkit-scrollbar {
+width: 6px; /* 纵向滚动条*/
+height: 5px; /* 横向滚动条 */
+background-color: #fff;
+}
+
+/*定义滚动条轨道 内阴影*/
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+background-color: white;
+}
+
+/*定义滑块 内阴影*/
+::-webkit-scrollbar-thumb {
+box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+background-color: #ccc;
+border-radius: 10px;
 }
 
 </style>

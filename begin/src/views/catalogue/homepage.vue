@@ -4,28 +4,29 @@
     <div class="top">
       <div class="icon"><img src="@/static/img/he.png" class="icon-img" alt=""></div>
       <div class="search">
-        <el-autocomplete
-          placeholder="请输入查找内容"
-        ></el-autocomplete>
+<!--        <el-autocomplete-->
+<!--          placeholder="请输入查找内容"-->
+<!--        ></el-autocomplete>-->
+
       </div>
       <el-menu
         :router="true"
-        background-color="#ffff00"
+        background-color="RGBA(176,224,230,1)"
         class="el-menu-demo"
         mode="horizontal"
         text-color="#000000"
-        active-text-color="#FF0000">
+        active-text-color="RGBA(176,224,230,1)">
         <el-menu-item index="/homepage">首页</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">中医</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-        </el-submenu>
-        <el-menu-item index="4">西医</el-menu-item>
-        <el-menu-item index="/userlist">生活广场</el-menu-item>
+<!--        <el-submenu index="2">-->
+<!--          <template slot="title">中医</template>-->
+<!--          <el-menu-item index="2-1">选项1</el-menu-item>-->
+<!--          <el-menu-item index="2-2">选项2</el-menu-item>-->
+<!--          <el-menu-item index="2-3">选项3</el-menu-item>-->
+<!--        </el-submenu>-->
+<!--        <el-menu-item index="4">西医</el-menu-item>-->
+        <el-menu-item index="/messages">资讯</el-menu-item>
         <el-menu-item index="/community" >社区交流</el-menu-item>
-        <el-menu-item index="/HEALTH">养生指南</el-menu-item>
+        <el-menu-item index="/HEALTH">在线资讯</el-menu-item>
         <el-menu-item index="/userinfo" :disabled="name===''">个人中心</el-menu-item>
       </el-menu>
       <div class="little-menu">
@@ -33,6 +34,8 @@
       </div>
       <div class="username" >
         <el-avatar>{{name.substring(0,4)||"游客"}}</el-avatar>
+        <p v-if="type!=0" style=" color: #3a8ee6; cursor: pointer" @click="run">{{ListName[type-1]}}</p>
+        <p v-if="type==0">暂无体质数据</p>
         <p class="quit" @click="quit" v-if="name">退出登录</p>
       </div>
 
@@ -57,9 +60,14 @@
 
 <script>
 import  ZoomCharts from './homeecharts.vue'
+import {Bodytype} from "../../axios/AllRequest";
+import {descriptionsArray} from "../../ui-FZ/echarts";
+import router from "../../router";
 export default {
   data() {
     return {
+      type:0,
+      ListName:descriptionsArray,
       name: '',
       excessive: false,
       imgList: [
@@ -74,9 +82,13 @@ export default {
   },
   mounted() {
     this.name=this.$store.state.A.user
+    this.getType()
   },
 
   methods: {
+    run(){
+      router.push('/userinfo')
+    },
     quit(){
       this.$confirm('确认退出?未保存的数据将丢失', '提示', {
         confirmButtonText: '确定',
@@ -89,6 +101,14 @@ export default {
 
       });
 
+    },
+    getType(){
+      Bodytype('/home/orgtype',{id:sessionStorage.getItem('OrgId')}).then(({data})=>{
+        if(data.code==200){
+        this.type=data.data[0].bodyType
+          sessionStorage.setItem('type',data.data[0].bodyType)
+        }
+      })
     }
   }
 }
@@ -101,9 +121,11 @@ export default {
 }
 
 .all {
-  background-color: #F5F5F5;
+  background: linear-gradient(135deg, rgba(230,230,250,1),rgba(194,233,251,1));
+  overflow-x:auto ;
 overflow-y: auto;
   height: 100%;
+  min-width: 1500px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -114,14 +136,13 @@ overflow-y: auto;
   .top {
     width: 100%;
     height: 50px;
-    background-color: #ffff00;
+    background-color: rgba(176,224,230,0.8);
     display: flex;
     position: relative;
     flex-direction: row;
-    gap:60px;
+      gap:60px;
     .search {
       height: 50px;
-      //margin-left: 10%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -134,18 +155,16 @@ overflow-y: auto;
         }
       }
     }
-
     .username {
+      position: absolute;
+      right:4%;
       text-align: center;
-      //position: absolute;
-      //left: 10px;
-      width: 120px;
       height: 50px;
       display: flex;
+      gap: 20px;
       align-items: center;
       line-height: 50px;
       justify-content: space-between;
-
       .el-avatar {
         background-color: #52c41a;
         height: 40px;
@@ -153,9 +172,14 @@ overflow-y: auto;
       }
 
       .quit {
-        font-size: 14px;
-        height: 50px;
-        line-height: 50px;
+        width: 60px;
+        border-radius: 20px;
+        border: 1px  solid black;
+        color: white;
+        background-color: black;
+        font-size: 12px;
+        height: 30px;
+        line-height: 30px;
         display: inline-block;
         margin: 0;
         cursor: pointer;
@@ -175,35 +199,24 @@ overflow-y: auto;
         display: block;
       }
     }
-
-   @media screen and(min-width: 1200px) {
      .el-menu {
        display: flex;
        gap:30px;
        height: 50px;
-       width: 1000px ;
+       width: 800px ;
        overflow: hidden;
      }
      .little-menu{
        display:none;
      }
-   }
 
-    @media screen and(max-width: 1200px) {
-      .el-menu {
-        display: none;
-        height: 50px;
-        width: 500px ;
-        overflow: hidden;
-      }
-      .little-menu{
-        display:flex;
-      }
-    }
     .el-menu-demo {
 
     }
   }
+
+
+
 }
     .picture {
       margin-top: 40px;
@@ -211,6 +224,7 @@ overflow-y: auto;
       width: 86%;
       margin-left: 7%;
       .pic {
+
         height: 280px !important;
         margin-left: 40px;
         overflow-y: hidden;
@@ -225,7 +239,7 @@ overflow-y: auto;
       padding-top: 30px;
     //overflow-y: auto;
     }
-  }
+
 
 
 .el-carousel__item h3 {
@@ -244,22 +258,29 @@ overflow-y: auto;
 .el-carousel__item {
   height: 280px !important;
   width: 45% !important;
-
+}
+}
+#little-box{
+  background-color: white;
 }
 </style>
 <style>
 el-menu .el-menu-item:hover {
-  background: #ffff00 !important;
+  background-color: rgba(176,224,230,0.8) !important;
 }
 
 .el-submenu__title:hover {
-  background-color: #ffff00 !important;
+  background-color: rgba(176,224,230,0.8) !important;
 }
 
 .el-menu-item:hover {
-  background-color: #ffff00 !important;
+  background-color: rgba(176,224,230,0.8) !important;
 }
 .el-dropdown-menu__item, .el-menu-item{
   padding: 0 10px;
 }
+.el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
 </style>

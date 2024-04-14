@@ -120,7 +120,7 @@ export  default {
   .register{
     border-radius: 10px;
     position: absolute;
-    background: white;
+    background: linear-gradient(135deg, rgba(230,230,250,0.3),rgba(194,233,251,0));
     height: 50%;
     width: 80%;
     z-index: 200;
@@ -165,9 +165,9 @@ export  default {
 }
 @media screen and (min-width:700px) {
   .register{
+    background: linear-gradient(135deg, rgba(230,230,250,1),rgba(194,233,251,1));
     border-radius: 10px;
     position: absolute;
-    background: white;
     height: 50%;
     width: 600px;
     z-index: 200;

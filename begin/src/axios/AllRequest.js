@@ -38,3 +38,60 @@ export  function getBrowse(url,data){
     params: data
   })
 }
+//体质类型
+export  function  Bodytype(url,data){
+  return request({
+    url: url,
+    method: 'get',
+    params: data
+  })
+}
+//问题列表
+export  function  Problem(url,data){
+  return request({
+    url: url,
+    method: 'get',
+    params: data
+  })
+}
+//查询评论
+export  function  comment(url,data){
+  return request({
+    url: url,
+    method: 'get',
+    params: data
+  })
+}
+//插入评论
+export  function  insertcomment(url,data){
+  return request({
+    url: url,
+    method: 'get',
+    params: data
+  })
+}
+//更新orgid
+export  function  updateorg(url,data){
+  return request({
+    url: url,
+    method: 'get',
+    params: data
+  })
+}
+
+//我的提问
+export  function  ProblemMy(url,data){
+  return request({
+    url: url,
+    method: 'get',
+    params: data
+  })
+}
+//删除问题
+export  function  delproblem(url,data){
+  return request({
+    url: url,
+    method: 'get',
+    params: data
+  })
+}

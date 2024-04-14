@@ -37,7 +37,7 @@
 <script>
 import {logIn} from "../axios/AllRequest";
 import  signIn from  "./catalogue/signIn.vue"
-import Mask from "../ui-FZ/Mask.vue"
+import Mask from "./catalogue/Mask.vue"
 
 export default {
   components:{
@@ -79,7 +79,7 @@ data(){
              console.log(data.data)
              if(data.code==200){
                sessionStorage.setItem('token',data.data.token)
-               console.log('Token stored:', data.data.token);
+               sessionStorage.setItem('OrgId',data.data.id)
                this.$message({
                  message: '登录成功,即将跳转',
                  type: 'success',
@@ -155,6 +155,7 @@ data(){
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, rgba(230,230,250,1),rgba(194,233,251,1));
   font-family: PingFang SC,serif;
  gap:20px;
   @media screen and (max-width: 700px) {
@@ -169,6 +170,7 @@ data(){
       justify-content: center;
       flex-direction: column;
       padding: 20px;
+      background: linear-gradient(135deg, rgba(230,230,250,1),rgba(194,233,251,1));
       .clearfix {
         width: 100%;
         .title {
@@ -240,6 +242,7 @@ data(){
       flex-direction: column;
       padding: 50px;
       gap:20px;
+      background: linear-gradient(135deg, rgba(230,230,250,0.3),rgba(194,233,251,0));
       .clearfix {
         width: 100%;
         .title {

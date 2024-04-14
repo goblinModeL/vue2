@@ -52,12 +52,12 @@ const router = new Router({
   ]
     },
     {
-      path: '/userlist',
-      name: 'userlist',
+      path: '/messages',
+      name: 'messages',
       meta: {
         title: '个人中心2'
       },
-      component:  _import('catalogue/userlist')
+      component:  _import('catalogue/messages')
     },
     {
       path: '/HEALTH',
